@@ -103,49 +103,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/ll1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="horizontal"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/ed2"
-
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="0.34"
-            android:autofillHints="Helllo"
-            android:ems="10"
-
-            android:gravity="bottom|start"
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:maxLength="10"
-            android:numeric="integer|signed"
-            android:textAlignment="textStart"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/bt1"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0.16"
-            android:background="?android:attr/colorFocusedHighlight"
-            android:text="+ Add"
-            android:textSize="30sp" />
-    </LinearLayout>
-
-    <LinearLayout
         android:id="@+id/ll3"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -405,6 +362,10 @@
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="637dp" />
 
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/input_layout_dfsemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
                 android:id="@+id/ed1"
                 android:layout_width="162dp"
@@ -421,6 +382,7 @@
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="699dp" />
+        </android.support.design.widget.TextInputLayout>
         </LinearLayout>
 
         <LinearLayout
@@ -475,6 +437,62 @@
 
         </LinearLayout>
 
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="411dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:weightSum="1"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/input_layout_email"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp">
+
+            <EditText
+                android:id="@+id/ed2"
+
+                android:layout_width="226dp"
+                android:layout_height="57dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="0dp"
+                android:autofillHints="Helllo"
+                android:ems="10"
+                android:gravity="bottom|start"
+                android:hint="Enter the Expense"
+                android:imeOptions="actionDone"
+                android:inputType="number"
+                android:maxLength="10"
+                android:minEms="20"
+                android:minHeight="178dp"
+                android:numeric="integer|signed"
+                android:textAlignment="textStart"
+                android:textSize="24sp" />
+        </android.support.design.widget.TextInputLayout>
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="66dp"
+            android:layout_height="56dp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight="0.49"
+            android:background="?android:attr/colorFocusedHighlight"
+            android:elevation="0dp"
+            android:text="+ Add"
+            android:textSize="30sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
