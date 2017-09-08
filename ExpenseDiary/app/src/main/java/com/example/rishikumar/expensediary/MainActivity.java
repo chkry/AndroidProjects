@@ -160,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
                 tv4.setTextColor(Color.rgb(34, 139, 34));
             }
         }
+        if(no1==0){p1.setText("--");}
+        if(no2==0){p2.setText("--");}
+        if(no3==0){p3.setText("--");}
+        if(no4==0){p4.setText("--");}
 
 
 
@@ -221,6 +225,13 @@ public class MainActivity extends AppCompatActivity {
 
 
                 }
+
+
+                if(no1==0){p1.setText("--");}
+                if(no2==0){p2.setText("--");}
+                if(no3==0){p3.setText("--");}
+                if(no4==0){p4.setText("--");}
+
                 myDb.updateData(1,no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
 
 
