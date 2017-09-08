@@ -13,7 +13,7 @@ import android.util.Log;
  */
 
 public class DatabaseHelper extends SQLiteOpenHelper{
-    public static  final  String DATABASE_NAME="Sqldata";
+    public static  final  String DATABASE_NAME="Expence_Diary_SQL";
     public static  final  String TABLE_NAME="Sqldata_table";
     public static  final  String COL1="ID";
     public static  final  String COL2="NO1";
@@ -92,7 +92,9 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void deleteData(int id){
 
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_NAME,"ID=?",new String[]{Integer.toString(id)});
+        db.delete(TABLE_NAME, "ID=?", new String[]{Integer.toString(id)});
+        Log.d("delete","Deleting "+id+" th row..");
+      //  db.delete(TABLE_NAME,"ID=?",new String[]{Integer.toString(id)});
 
     }
 

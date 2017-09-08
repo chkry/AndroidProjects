@@ -1,75 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:res-auto="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:autofillHints="11111"
     android:background="?attr/colorControlHighlight"
-    android:backgroundTint="@color/fab_stroke_end_outer_color"
+    android:backgroundTint="@color/colorPrimary"
+    android:descendantFocusability="beforeDescendants"
+    android:focusableInTouchMode="true"
     tools:context="com.example.rishikumar.expensediary.MainActivity">
 
 
     <RadioGroup
-    android:id="@+id/ll2"
-    android:layout_width="0dp"
-    android:layout_height="57dp"
-    android:orientation="horizontal"
-    app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    android:layout_marginTop="24dp"
-    app:layout_constraintTop_toBottomOf="@+id/ll1">
+        android:id="@+id/ll2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ll1">
 
-    <RadioButton
-        android:id="@+id/rb1"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginStart="10dp"
-        android:layout_weight="1"
-        android:onClick="onRadioButtonClicked"
-        android:text="Food" />
+        <RadioButton
+            android:id="@+id/rb1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="Food" />
 
-    <RadioButton
-        android:id="@+id/rb2"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:onClick="onRadioButtonClicked"
-        android:text="Shopping" />
+        <RadioButton
+            android:id="@+id/rb2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="Shopping" />
 
-    <RadioButton
-        android:id="@+id/rb3"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:onClick="onRadioButtonClicked"
-        android:text="Entertainment" />
+        <RadioButton
+            android:id="@+id/rb3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="Entertainment" />
 
-    <RadioButton
-        android:id="@+id/rb4"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="10dp"
-        android:layout_weight="1"
-        android:onClick="onRadioButtonClicked"
-        android:text="Others" />
-</RadioGroup>
+        <RadioButton
+            android:id="@+id/rb4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="10dp"
+            android:layout_weight="1"
+            android:onClick="onRadioButtonClicked"
+            android:text="Others" />
+    </RadioGroup>
 
 
     <LinearLayout
         android:id="@+id/ll5"
-        android:layout_width="407dp"
+        android:layout_width="0dp"
         android:layout_height="54dp"
         android:layout_marginBottom="8dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll4"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintVertical_bias="1.0"
+        tools:layout_editor_absoluteX="69dp">
 
         <Button
             android:id="@+id/undo"
@@ -95,29 +103,66 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/ll1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="horizontal"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/ed2"
+
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="30dp"
+            android:layout_weight="0.34"
+            android:autofillHints="Helllo"
+            android:ems="10"
+
+            android:gravity="bottom|start"
+            android:imeOptions="actionDone"
+            android:inputType="number"
+            android:maxLength="10"
+            android:numeric="integer|signed"
+            android:textAlignment="textStart"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/bt1"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.16"
+            android:background="?android:attr/colorFocusedHighlight"
+            android:text="+ Add"
+            android:textSize="30sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/ll3"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="120dp"
+        android:layout_marginEnd="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
+        android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
-        android:orientation="horizontal"
+        android:background="@color/colorPrimary"
+        android:orientation="vertical"
         android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="@+id/ll4"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ll2"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp">
-
-        <RadioButton
-            android:id="@+id/radioButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="RadioButton" />
+        app:layout_constraintTop_toBottomOf="@+id/ll2">
 
         <TableLayout
             style="@style/Base.TextAppearance.AppCompat.Title"
@@ -245,6 +290,7 @@
             <TableRow>
 
                 <TextView
+                    android:id="@+id/textView6"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_column="1"
@@ -273,119 +319,162 @@
                     android:textSize="24sp" />
             </TableRow>
         </TableLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="0dp"
+            android:layout_marginEnd="0dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/background_light"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:layout_editor_absoluteY="379dp">
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="190dp"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="1dp"
+                android:background="@android:color/background_light"
+                android:fontFamily="casual"
+                android:gravity="center"
+                android:paddingBottom="0dp"
+                android:text="Total  :"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+
+            <TextView
+                android:id="@+id/tv3"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="5dp"
+                android:layout_marginRight="0dp"
+                android:background="@android:color/background_light"
+                android:gravity="center"
+                android:hint="Expense"
+                android:textSize="24sp" />
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp"></LinearLayout>
-
-    <LinearLayout
         android:id="@+id/ll4"
-        android:layout_width="412dp"
-        android:layout_height="154dp"
-        android:layout_marginBottom="80dp"
+        android:layout_width="0dp"
+        android:layout_height="104dp"
+        android:layout_marginBottom="70dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="56dp"
+        android:foregroundGravity="bottom"
         android:orientation="horizontal"
+        android:weightSum="1"
         app:layout_constraintBottom_toBottomOf="@+id/ll5"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ll3"
-        app:layout_constraintVertical_bias="0.92">
+        app:layout_constraintVertical_bias="0.92"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="178dp"
+            android:layout_height="124dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="10dp"
+            android:gravity="bottom"
             android:orientation="vertical"
-            android:weightSum="1"
-            android:layout_weight="0.02">
+            android:weightSum="1">
+
+            <TextView
+                android:id="@+id/textVcsdiew3"
+                android:layout_width="162dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.83"
+                android:fontFamily="casual"
+                android:gravity="bottom|center_vertical|center_horizontal"
+                android:text="BUDGET:"
+                android:textSize="24sp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="637dp" />
+
+            <EditText
+                android:id="@+id/ed1"
+                android:layout_width="162dp"
+                android:layout_height="57dp"
+                android:layout_gravity="bottom"
+                android:allowUndo="false"
+                android:ems="1"
+                android:hint="Enter Your Budget"
+                android:inputType="number"
+                android:maxLength="10"
+                android:paddingRight="0dp"
+                android:selectAllOnFocus="true"
+                android:textAlignment="center"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="699dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="203dp"
+            android:layout_height="130dp"
+            android:layout_gravity="bottom"
+            android:layout_marginRight="10dp"
+            android:layout_weight="0.80"
+            android:gravity="bottom"
+            android:orientation="vertical"
+            android:weightSum="1">
 
             <TextView
                 android:id="@+id/textView3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1.05"
+                android:layout_weight="0.59"
                 android:fontFamily="casual"
                 android:gravity="bottom|center_vertical|center_horizontal"
-                android:text="BUDGET:"
-                android:textSize="24sp" />
-
-            <EditText
-                android:id="@+id/ed1"
-                android:layout_width="176dp"
-                android:layout_height="78dp"
-                android:layout_gravity="bottom"
-                android:layout_marginRight="50dp"
-                android:layout_marginStart="10dp"
-                android:layout_weight="0.31"
-                android:allowUndo="false"
-                android:ems="1"
-                android:hint="Enter Your Budget"
-                android:inputType="number"
-                android:paddingRight="0dp"
-                android:textAlignment="center"
+                android:text="Available :"
                 android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv4"
+                android:layout_width="match_parent"
+                android:layout_height="66dp"
+                android:layout_marginEnd="0dp"
+                android:layout_marginLeft="0dp"
+                android:layout_marginStart="10dp"
+                android:allowUndo="false"
+                android:autoSizeMaxTextSize="40dp"
+                android:autoSizeMinTextSize="20dp"
+
+                android:autoText="false"
+                android:ems="0"
+                android:fontFamily="casual"
+
+                android:gravity="center"
+                android:hint="Balance"
+                android:maxHeight="36dp"
+                android:maxLength="14"
+                android:minHeight="20dp"
+                android:numeric="integer"
+                android:overScrollMode="ifContentScrolls"
+                android:phoneNumber="true"
+                android:singleLine="true"
+                android:text="8888888888"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold"
+                android:visibility="visible" />
+
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv44"
-            android:layout_width="134dp"
-            android:layout_height="match_parent"
-            android:layout_marginEnd="10dp"
-            android:layout_marginLeft="100dp"
-            android:layout_weight="0.03"
-            android:autoSizeMaxTextSize="50dp"
-            android:autoSizeMinTextSize="20dp"
-            android:ems="50"
-            android:fontFamily="casual"
-            android:gravity="center"
-            android:hint="Balance"
-            android:text="Balance"
-            android:textAlignment="center"
-            android:textSize="45sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/ll1"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        android:orientation="horizontal"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <EditText
-            android:id="@+id/ed2"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="30dp"
-            android:layout_weight="0.34"
-            android:ems="10"
-            android:gravity="bottom|start"
-
-            android:imeOptions="actionDone"
-            android:inputType="number"
-            android:textAlignment="textStart"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/bt1"
-            android:layout_width="56dp"
-            android:layout_height="56dp"
-            android:layout_marginRight="10dp"
-            android:layout_weight="0.16"
-            android:background="?android:attr/colorFocusedHighlight"
-            android:text="+ Add"
-            android:textSize="30sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

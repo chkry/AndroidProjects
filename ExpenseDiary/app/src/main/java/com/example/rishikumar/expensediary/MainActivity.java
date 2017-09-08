@@ -58,7 +58,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         context = getApplicationContext();
-        final TextView tv4 = (TextView) findViewById(R.id.tv44);
+        final TextView tv4 = (TextView) findViewById(R.id.tv4);
+        final TextView tv3 = (TextView) findViewById(R.id.tv3);
         final EditText ed1 = (EditText) findViewById(R.id.ed1);
         final EditText ed2 = (EditText) findViewById(R.id.ed2);
         Button rset = (Button) findViewById(R.id.clear);
@@ -92,11 +93,12 @@ public class MainActivity extends AppCompatActivity {
 
 
        // ::::::::::::::::::::::::::::::::::::::::::::::::::::
-
+       // myDb.deleteData(0);
+       // myDb.deleteData(1);
         myDb.insertData(no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
         myDb.deleteData(2);
 
-      myDb.deleteData(3);myDb.deleteData(4);
+
         Log.d("ERROR", "Aded first row");
 
 
@@ -140,19 +142,24 @@ public class MainActivity extends AppCompatActivity {
         }
         Log.d("ia am here", "I am here..");
 
-
-        p1.setText(cu.getString(1));
-        p2.setText(cu.getString(2));
-        p3.setText(cu.getString(3));
-        p4.setText(cu.getString(4));
-        ed1.setText(cu.getString(5));
-        tv4.setText(cu.getString(6));
-
-        if((bal)<0)
         {
-            tv4.setTextColor(Color.rgb( 205, 62, 45));
+
+            sum = no1 + no2 + no3 + no4;
+            tv3.setText(Long.toString(sum));
+            p1.setText(cu.getString(1));
+            p2.setText(cu.getString(2));
+            p3.setText(cu.getString(3));
+            p4.setText(cu.getString(4));
+            ed1.setText(cu.getString(5));
+            tv4.setText(cu.getString(6));
+
+
+            if ((bal) < 0) {
+                tv4.setTextColor(Color.rgb(205, 62, 45));
+            } else {
+                tv4.setTextColor(Color.rgb(34, 139, 34));
+            }
         }
-        else{tv4.setTextColor(Color.rgb(34,139,34));}
 
 
 
@@ -198,21 +205,25 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
 
-                p1.setText(Long.toString(no1));
-                p2.setText(Long.toString(no2));
-                p3.setText(Long.toString(no3));
-                p4.setText(Long.toString(no4));
+              {
+                    p1.setText(Long.toString(no1));
+                    p2.setText(Long.toString(no2));
+                    p3.setText(Long.toString(no3));
+                    p4.setText(Long.toString(no4));
 
 
+                    sum = no1 + no2 + no3 + no4;
+                    bal = bud - sum;
 
-                sumo= no1+no2+no3+no4;
-                bal= bud-sumo;
-                ed1.setText(Long.toString(bud));
-                tv4.setText(Long.toString(bal));
+                    tv3.setText(Long.toString(sum));
+                    ed1.setText(Long.toString(bud));
+                    tv4.setText(Long.toString(bal));
 
 
-
+                }
                 myDb.updateData(1,no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
+
+
 
 
             }
@@ -235,13 +246,13 @@ public class MainActivity extends AppCompatActivity {
                 buds="";
                 exps="";
                 bals="";
-                no1o=no1;
-                no2o=no2;
-                no3o=no3;
-                no4o=no4;
-                budo=bud;
-                balo=bal;
-                expo=exp;
+                no1o=0;
+                no2o=0;
+                no3o=0;
+                no4o=0;
+                budo=0;
+                balo=0;
+                expo=0;
 
                 sum=0;
                 ed1.setText("");
@@ -251,7 +262,9 @@ public class MainActivity extends AppCompatActivity {
                 p2.setText("--");
                 p3.setText("--");
                 p4.setText("--");
-                myDb.updateData(1,no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
+
+                tv3.setText("--");
+               myDb.updateData(1,no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
                 if((bal)<0)
                 {
                     tv4.setTextColor(Color.rgb( 205, 62, 45));
@@ -277,18 +290,26 @@ public class MainActivity extends AppCompatActivity {
                 {
                     buds =ed1.getText().toString();
                     sum=no1+no2+no3+no4;
-                    if(buds.length()>0) {
+                    if(buds.length()>0)
+                    {
 
                         bud =  Long.parseLong( buds);
-                        bal = bud - sum;
-                        bals = Long.toString(bal);
 
-
-                        tv4.setText(bals);
 
 
 
                     }
+                  //  else{bud=0;}
+                    bal = bud - sum;
+                    bals = Long.toString(bal);
+
+                    tv3.setText(Long.toString(sum));
+                    tv4.setText(bals);
+                    ed1.setText(buds);
+                    findViewById(R.id.mainLayout).requestFocus();
+                    InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
+                    //imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+                    imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
                     myDb.updateData(1,no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
 
 
@@ -308,9 +329,11 @@ public class MainActivity extends AppCompatActivity {
         bt1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                findViewById(R.id.mainLayout).requestFocus();
                 InputMethodManager imm = (InputMethodManager)getSystemService(INPUT_METHOD_SERVICE);
                 //imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
                 imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(),InputMethodManager.HIDE_NOT_ALWAYS);
+
                 Cursor cu = myDb.getalldata();
                 cu.moveToFirst();
                 {
@@ -354,8 +377,9 @@ public class MainActivity extends AppCompatActivity {
 
 
                 buds =ed1.getText().toString();
+
                 sum=no1+no2+no3+no4;
-                if(buds.length()>0) {
+                if(buds.length()>0 ) {
 
                     bud = Long.parseLong(buds);
                     bal = bud - sum;
@@ -363,23 +387,25 @@ public class MainActivity extends AppCompatActivity {
 
 
                     tv4.setText(bals);
+
+                    tv3.setText(Long.toString(sum));
                 }
 
                 exps = ed2.getText().toString();
-                if(exps.length()>0){
+                if(exps.length()>0 &&(Long.parseLong(exps)!=0)){
                     exp = Long.parseLong(exps);
                     if(flag==true) {
-                        if(r11==true){   no1 =no1 +exp; sum=no1+no2+no3+no4; p1.setText(Long.toString(no1));bal=bud-sum;tv4.setText(Long.toString(bal));ed2.setText("");
+                        if(r11==true){   no1 =no1 +exp; sum=no1+no2+no3+no4; p1.setText(Long.toString(no1));bal=bud-sum;tv4.setText(Long.toString(bal)); tv3.setText(Long.toString(sum));ed2.setText("");
                             Toast toast = Toast.makeText(context,"Added "+exp+" Rupees to Food " , Toast.LENGTH_SHORT);
                             toast.show();}
-                        else if(r12==true){no2 =no2 +exp; sum=no1+no2+no3+no4; p2.setText(Long.toString(no2));bal=bud-sum;tv4.setText(Long.toString(bal));ed2.setText("");
+                        else if(r12==true){no2 =no2 +exp; sum=no1+no2+no3+no4; p2.setText(Long.toString(no2));bal=bud-sum;tv4.setText(Long.toString(bal)); tv3.setText(Long.toString(sum));ed2.setText("");
                             Toast toast = Toast.makeText(context,"Added "+exp+" Rupees to Study " , Toast.LENGTH_SHORT);
                             toast.show();}
-                        else if(r13==true){ no3 =no3 +exp ; sum=no1+no2+no3+no4; p3.setText(Long.toString(no3));bal=bud-sum;tv4.setText(Long.toString(bal));ed2.setText("");
+                        else if(r13==true){ no3 =no3 +exp ; sum=no1+no2+no3+no4; p3.setText(Long.toString(no3));bal=bud-sum;tv4.setText(Long.toString(bal)); tv3.setText(Long.toString(sum));ed2.setText("");
                             Toast toast = Toast.makeText(context,"Added "+exp+" Rupees to Entertainment " , Toast.LENGTH_SHORT);
                             toast.show();}
-                        else if(r14==true){ no4 =no4 +exp; sum=no1+no2+no3+no4; p4.setText(Long.toString(no4));bal=bud-sum;tv4.setText(Long.toString(bal));ed2.setText("");
-                            Toast toast = Toast.makeText(context,"Added "+exp+" Rupees to Travel " , Toast.LENGTH_SHORT);
+                        else if(r14==true){ no4 =no4 +exp; sum=no1+no2+no3+no4; p4.setText(Long.toString(no4));bal=bud-sum;tv4.setText(Long.toString(bal)); tv3.setText(Long.toString(sum));ed2.setText("");
+                            Toast toast = Toast.makeText(context,"Added "+exp+" Rupees to Others " , Toast.LENGTH_SHORT);
                             toast.show();}
 
 
@@ -400,6 +426,12 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+                }
+                else{
+                    ed2.setText("");
+                    Context context = getApplicationContext();
+                    Toast toast = Toast.makeText(context, "Enter a valid number ", Toast.LENGTH_SHORT);
+                    toast.show();
                 }
 
                 myDb.updateData(1, no1, no2, no3, no4, bud, bal,no1o, no2o, no3o, no4o, budo, balo);
